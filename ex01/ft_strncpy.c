@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchumbas <tchumbas@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 17:30:10 by tchumbas          #+#    #+#             */
-/*   Updated: 2025/08/08 11:07:10 by tchumbas         ###   ########.fr       */
+/*   Created: 2025/08/08 11:09:37 by tchumbas          #+#    #+#             */
+/*   Updated: 2025/08/08 11:20:46 by tchumbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h> */
+/* #include <stdio.h> */
 
-/* The strcpy() function copies the string pointed to by src,
-	including the terminating null byte('\0'),
-	to the buffer pointed to by dest.The strings may not overlap,
-	and the destination string dest must be large enough to receive the copy. */
+/* The	strncpy(void) function is similar,
+except that at most n bytes of src are copied.Warning : 
+If there is no null byte among the first n bytes of src,
+the string placed in dest will not be null -
+terminated. */
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	int	i;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (n--)
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
 	return (dest);
 }
 
 /* int	main(void)
 {
-	char dest[25];
+	char dest[25] = "xxxxxxxxxxx";
 	char *src;
+	unsigned int n;
+
+	n = 4;
 	src = "zzzzzz";
-	printf("%s", ft_strcpy(dest, src));
+	printf("%s", ft_strncpy(dest, src, n));
 } */
